@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!245 &-5892861950768065397
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot - Copy
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: cae6b5cbc1bb6ed48bbdda2f39d0458b
+  m_FloatValues:
+    9df7ca4b331065440b9c930bb6c8a2ec: -20.2
+  m_TransitionOverrides: {}
 --- !u!243 &-3227683649088326556
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -49,6 +61,7 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: -5892861950768065397}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -112,7 +125,8 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 9a5aeac8e83572c4b81f87002f5416a7
-  m_FloatValues: {}
+  m_FloatValues:
+    9df7ca4b331065440b9c930bb6c8a2ec: -62.4
   m_TransitionOverrides: {}
 --- !u!244 &2348381410005237228
 AudioMixerEffectController:
