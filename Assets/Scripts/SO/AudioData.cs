@@ -35,6 +35,28 @@ public class AudioData : ScriptableObject
         audioMixer.SetFloat(SfxKeyVolume, VolumeToDB(value));
     }
 
+    #region Getters
+    public float GetMaster()
+    {
+        float value;
+        audioMixer.GetFloat(masterKeyVolume, out value);
+        return DBtoVolume(value);
+    }
+
+    public float GetMusic()
+    {
+        float value;
+        audioMixer.GetFloat(musicKeyVolume, out value);
+        return DBtoVolume(value);
+    }
+
+    public float GetSFX()
+    {
+        float value;
+        audioMixer.GetFloat(SfxKeyVolume, out value);
+        return DBtoVolume(value);
+    }
+    #endregion
     /*
     public void SetAmbient(float value) 
     { 
@@ -49,4 +71,10 @@ public class AudioData : ScriptableObject
         return Mathf.Clamp(Mathf.Log10(f) * 20f, -80f, 20f);
     }
 
+    private float DBtoVolume(float f)
+    {
+        return Math.Clamp((float)Math.Pow(10, f / 20f), 0, 1f);
+
+        //return Mathf.Clamp(Mathf.Log10(f) * 20f, -80f, 20f);
+    }
 }
