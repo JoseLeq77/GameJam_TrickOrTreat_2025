@@ -1,16 +1,15 @@
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class DeactivateOnGameEnded : MonoBehaviour
 {
     private void OnEnable()
     {
-        TimePanel.OnTimeLimitReached += DeactivateThisObject;
+        TimeManager.OnTimeLimitReached += DeactivateThisObject;
     }
 
     private void OnDisable()
     {
-        TimePanel.OnTimeLimitReached -= DeactivateThisObject;
+        TimeManager.OnTimeLimitReached -= DeactivateThisObject;
     }
 
     private void DeactivateThisObject()

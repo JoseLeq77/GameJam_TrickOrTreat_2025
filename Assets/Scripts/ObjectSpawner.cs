@@ -9,8 +9,9 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField][Range(0, 100)] private int[] probabilities;
 
     [Header("Spawn zone")]
-    [SerializeField] private Vector3 spawnAreaMin;
-    [SerializeField] private Vector3 spawnAreaMax;
+    [SerializeField] private Vector2 areaSize = new Vector2(16, 9);
+    [SerializeField] private Vector2 areaOffset = Vector2.zero;
+    [SerializeField] private Color gizmoColor = new Color(1f, 0f, 0f, 0.3f);
 
     [SerializeField] private float spawnInterval = 3f;
 
@@ -37,12 +38,15 @@ public class ObjectSpawner : MonoBehaviour
                 accumulatedProbability += probabilities[i];
                 if (randomPercent <= accumulatedProbability)
                 {
-                    Vector3 spawnPos = new Vector3(
-                        Random.Range(spawnAreaMin.x, spawnAreaMax.x),
-                        Random.Range(spawnAreaMin.y, spawnAreaMax.y),
-                        Random.Range(spawnAreaMin.z, spawnAreaMax.z)
+                    float halfWidth = areaSize.x / 2;
+                    float halfHeight = areaSize.y / 2;
+
+                    Vector3 position = transform.position + new Vector3(
+                        Random.Range(-halfWidth, halfWidth) + areaOffset.x,
+                        Random.Range(-halfHeight, halfHeight) + areaOffset.y,
+                        0
                     );
-                    Instantiate(obstaclePrefabs[i], spawnPos, obstaclePrefabs[i].transform.rotation);
+                    Instantiate(obstaclePrefabs[i], position, obstaclePrefabs[i].transform.rotation);
                     break;
                 }
             }
@@ -51,15 +55,8 @@ public class ObjectSpawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector3 center = (spawnAreaMin + spawnAreaMax) / 2f;
-
-        Vector3 size = new Vector3(
-            Mathf.Abs(spawnAreaMax.x - spawnAreaMin.x),
-            Mathf.Abs(spawnAreaMax.y - spawnAreaMin.y),
-            Mathf.Abs(spawnAreaMax.z - spawnAreaMin.z)
-        );
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(center, size);
+        Gizmos.color = gizmoColor;
+        Vector3 center = transform.position + new Vector3(areaOffset.x, areaOffset.y, 0);
+        Gizmos.DrawCube(center, new Vector3(areaSize.x, areaSize.y, 0.1f));
     }
 }

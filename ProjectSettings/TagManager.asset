@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Target
+  - Background
+  - Trick
+  - Treat
+  - LevelEnter
   layers:
   - Default
   - TransparentFX
@@ -11,9 +16,9 @@ TagManager:
   - Background
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Objects
+  - Player
+  - Walls
   - 
   - 
   - 
@@ -43,6 +48,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Canvas
+    uniqueID: 949902357
     locked: 0
   m_RenderingLayers:
   - Default

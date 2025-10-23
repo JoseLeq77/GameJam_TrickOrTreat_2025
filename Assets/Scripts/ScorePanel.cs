@@ -8,12 +8,10 @@ public class ScorePanel : MonoBehaviour
     private void OnEnable()
     {
         ScoreManager.OnScoreChanged += UpdateScoreText;
-
     }
     private void OnDisable()
     {
         ScoreManager.OnScoreChanged -= UpdateScoreText;
-
     }
 
     private void UpdateScoreText(int currentScore)

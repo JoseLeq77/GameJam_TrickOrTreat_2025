@@ -16,7 +16,6 @@ MonoBehaviour:
   masterKeyVolume: MasterVolume
   musicKeyVolume: MusicVolume
   SfxKeyVolume: SfxVolume
-  master: 0
+  master: 1
   music: 1
   sfx: 1
-  ambient: 1

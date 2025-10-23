@@ -5,20 +5,16 @@ using UnityEngine.Audio;
 [CreateAssetMenu(fileName = "AudioData", menuName = "Scriptable Objects/AudioData")]
 public class AudioData : ScriptableObject
 {
-    #region Variables
     public AudioMixer audioMixer;
 
     public string masterKeyVolume;
     public string musicKeyVolume;
     public string SfxKeyVolume;
-    #endregion
 
     [Range(0f, 1f)] public float master = 1f;
     [Range(0f, 1f)] public float music = 1f;
     [Range(0f, 1f)] public float sfx = 1f;
-    //[Range(0f, 1f)] public float ambient = 1f;
 
-    #region metodo para cambiar volumenes
     public void SetMaster(float value) 
     { 
         master = value;
@@ -35,7 +31,6 @@ public class AudioData : ScriptableObject
         audioMixer.SetFloat(SfxKeyVolume, VolumeToDB(value));
     }
 
-    #region Getters
     public float GetMaster()
     {
         float value;
@@ -56,15 +51,7 @@ public class AudioData : ScriptableObject
         audioMixer.GetFloat(SfxKeyVolume, out value);
         return DBtoVolume(value);
     }
-    #endregion
-    /*
-    public void SetAmbient(float value) 
-    { 
-        ambient = value;
-        audioMixer.SetFloat(masterKeyVolume, VolumeToDB(value));
-    }
-    */
-    #endregion
+
 
     private float VolumeToDB(float f)
     {

@@ -17,6 +17,11 @@ public class PlayerFollowMouse : MonoBehaviour
         Transform = transform;
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic(AudioManager.Instance.musicClips[3]);
+    }
+
     private void Update()
     {
         Movement();
